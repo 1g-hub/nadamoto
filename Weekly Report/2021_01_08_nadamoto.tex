@@ -1,0 +1,114 @@
+%\documentstyle[epsf,twocolumn]{jarticle}       %LaTeX2.09仕様
+\documentclass[onecolumn]{jarticle}     %pLaTeX2e仕様
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%  基本 バージョン
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\topmargin}{-45pt}
+%\setlength{\oddsidemargin}{0cm} 
+\setlength{\oddsidemargin}{-7.5mm}
+%\setlength{\evensidemargin}{0cm} 
+\setlength{\textheight}{24.1cm}
+%setlength{\textheight}{25cm} 
+\setlength{\textwidth}{17.4cm}
+%\setlength{\textwidth}{172mm} 
+\setlength{\columnsep}{11mm}
+
+\kanjiskip=.07zw plus.5pt minus.5pt
+
+
+%【節がかわるごとに(1.1)(1.2) …(2.1)(2.2)と数式番号をつけるとき】
+%\makeatletter
+%\renewcommand{\theequation}{%
+%\thesection.\arabic{equation}} %\@addtoreset{equation}{section}
+%\makeatother
+
+%\renewcommand{\arraystretch}{0.95} 行間の設定
+\newcommand{\hanwa}{IO$\exists$K}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[dvipdfmx]{graphicx}   %pLaTeX2e仕様(要\documentstyle ->\documentclass)
+\usepackage{url}
+\usepackage{hhline}
+\usepackage{multirow}
+\usepackage{textcomp}
+\usepackage{mathcomp}
+\makeatletter
+\newcommand{\figcaption}[1]{\def\@captype{figure}\caption{#1}}
+\newcommand{\tblcaption}[1]{\def\@captype{table}\caption{#1}}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%bibtex用の設定
+\bibliographystyle{jplain}
+
+\noindent
+
+\hspace{1em}
+令和 3 年 1 月 8 日(金)
+ゼミ資料
+\hfill
+B4 灘本 紗也佳
+
+\vspace{2mm}
+
+\hrule
+
+\begin{center}
+{\Large \bf 進捗報告}
+\end{center}
+
+
+\hrule
+\vspace{3mm}
+
+% ここから 文章 Start!
+\section{今週やったこと}
+	\begin{itemize}
+	  \item 画像変換のネットワークの作成
+       \vspace{-0.5em}
+ 	  \item 卒論の執筆
+	\end{itemize}
+
+\section{今週の収穫}
+\subsection{画像変換のネットワークの作成}
+\begin{figure}[h]
+    \centering
+    \begin{tabular}{c}
+        \begin{minipage}{0.9\hsize}
+            \centering
+            \includegraphics[clip, width=16cm]{img.jpg}
+	       \caption{ネットワーク概要図}
+	       \label{data_generator}
+        \end{minipage}\\
+
+\vspace{1zh}				
+
+        \begin{minipage}{0.9\hsize}
+            \centering
+            \includegraphics[clip, width=16cm]{img2.jpg}
+	        \caption{ネットワーク概要図(変更版)}
+	        \label{data_generator2}
+        \end{minipage}
+    \end{tabular}
+\end{figure}
+
+昨年作ろうとしていた画像変換ネットワーク (図 \ref{data_generator}) だが, 写真風のなにかは生成されそうであるが, 入力の情報が失われてしまう危険性が高い. 
+ネットで見つけたネットワーク (図 \ref{data_generator2}) のほうが良さそうだったのでそちらでやっていくことにした. 
+リモート先のパソコンのネットワークを誤って切ってしまったので, 別の資料に生成結果を載せる. この生成された画像は, 写真と星図の 2 クラス分類を学習させた VGG16 で分類を行ったところ, 写真であると分類された. 
+
+今回, オリオン座の星図 287 枚を学習用に, 残り 1 枚をテスト用画像にした. 最終的に完成した変換ネットワークに, 学習に使用した星図を通してもいいのか...? また各星座につきそれぞれ一つずつ変換ネットワークを作るべきなのか...? 
+
+\subsection{卒論の執筆}
+ぼちぼち卒論の執筆も進めていきます. 
+
+\section{今後の方針}
+変換ネットワークをいじりつつ, 卒論も進めていきます. 
+
+
+% \bibliography{2020_05_08_nadamoto} 
+% \bibliographystyle{unsrt} 
+
+\end{document}
