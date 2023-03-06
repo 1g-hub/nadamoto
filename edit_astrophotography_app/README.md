@@ -19,6 +19,8 @@ python run.py
 - /app/static/model: SSD および GAN の学習済みモデルを格納
 - /app/static/starcatalog: 二種類のヒッパルコス星表のデータを格納 
 
+なお dataset_ssd および model のフォルダはサイズが大きすぎるためここに中身は置いていない. 中身は UML の Users にある灘本の M2_second から取得できる. 
+
 ## アプリで実装済みの内容, 未実装の内容
 ### 実装済みの内容
 - 天体写真に写っている星座の検出
