@@ -1,0 +1,88 @@
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>天体写真自動編集 Web アプリケーション</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="ここにサイト説明を入れます">
+    <meta name="keywords" content="キーワード１,キーワード２,キーワード３,キーワード４,キーワード５">
+    <link rel="stylesheet" href="{{ url_for('static',filename='../static/css/style.css') }}">
+    <script src="{{ url_for('static',filename='../static/js/openclose.js') }}"></script>
+    <script src="{{ url_for('static',filename='../static/js/fixmenu_pagetop.js') }}"></script>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="home">
+
+  <div id="container">
+    
+    <body>
+      <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/png, image/jpeg">
+        <div>
+          <label for="ck1">木や建物, 影が存在する：</label>
+          <input type="checkbox" id="ck1" name="checkbox" value="1">
+        </div>
+        <button type="submit">submit</button>
+      </form>
+
+      {% if images %}
+          <div>
+            <img src="{{ url_for('static',filename='input/input.png') }}" style="margin-top: 10px; vertical-align: bottom; width: 300px;">
+            入力画像
+            <img src="{{ url_for('static',filename='images/direction.png') }}" style="margin-top: 10px; vertical-align: bottom; width: 100px;">
+            <img src="{{ url_for('static',filename='input/output.png') }}" style="margin-top: 10px; vertical-align: bottom; width: 300px;">
+            編集画像
+          </div>
+
+          <div id="contents">
+
+            <section>
+            
+            <h2>背景画像</h2>
+            
+            <div class="list">
+              <form action="/select_image1" method="get">
+                <input type ="image" src="{{ url_for('static',filename='input/background_0000.png') }}" alt="button">
+              </form>
+            </a>
+            </div>
+            
+            <div class="list">
+              <form action="/select_image2" method="get">
+                <input type ="image" src="{{ url_for('static',filename='input/background_0001.png') }}" alt="button">
+              </form>
+            </a>
+            </div>
+            
+            <div class="list">
+              <form action="/select_image3" method="get">
+                <input type ="image" src="{{ url_for('static',filename='input/background_0002.png') }}" alt="button">
+              </form>
+            </a>
+            </div>
+      
+            <div class="list">
+              <form action="/select_image4" method="get">
+                <input type ="image" src="{{ url_for('static',filename='input/background_0003.png') }}" alt="button">
+              </form>
+            </a>
+            </div>
+
+            <form action="/reset" method="get" enctype="multipart/form-data">
+              <button type="submit">リセット</button>
+            </form>
+            
+            </section>
+      {% endif %}
+    </body>
+
+
+    <footer>
+        <small>Copyright&copy; Automatic Astrophotography Editing All Rights Reserved.</small>
+        <span class="pr"><a href="https://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
+    </footer>
+</body>
+</html>
